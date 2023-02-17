@@ -28,12 +28,14 @@ This API is used to insert data to a certain sheet name.
 | POST   | {{appscript_web_url}}/insert
 
 
+#### Request Body
+
 | Parameter | Type | Required | Description |
 | --------- | ---- | -------- | ----------- |
 | sheetName | string | true   | Sheet name where the data will be inserted |
 | data      | array | true  | array of object which will be inserted to the sheet. The keys of the object are the columns in the sheet and the value of the objects are the value that will be inserted |
 
-Example Request:
+### Example Request:
 
 ```bash
 curl --location 'https://script.google.com/macros/s/AKbcvfxUQKPcQokx8D_OcFC04FO1r36SJfWKKHayGOgEZ2DhYI26u10rdg51hRHTv5oUgAQabc/exec' \
@@ -51,8 +53,7 @@ curl --location 'https://script.google.com/macros/s/AKbcvfxUQKPcQokx8D_OcFC04FO1
 }'
 ```
 
-
-Example Response:
+#### Example Response:
 
 ```JSON
 {

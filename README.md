@@ -25,13 +25,14 @@ This API is used to insert data to a certain sheet name.
 
 | Method | URL |
 | ------ | --- |
-| POST   | {{appscript_web_url}}/insert
+| POST   | {{appscript_web_url}}
 
 
 #### Request Body
 
 | Parameter | Type | Required | Description |
 | --------- | ---- | -------- | ----------- |
+| action | string | true | must be set to "Insert" with case insensitive |
 | sheetName | string | true   | Sheet name where the data will be inserted |
 | data      | array | true  | array of object which will be inserted to the sheet. The keys of the object are the columns in the sheet and the value of the objects are the value that will be inserted |
 

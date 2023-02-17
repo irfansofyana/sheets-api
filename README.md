@@ -19,9 +19,9 @@ code xxxx
 
 ## List of APIs
 
-### Add Data
+### Insert Data
 
-This API is used to add  data to a certain sheet name.
+This API is used to insert data to a certain sheet name.
 
 | Method | URL |
 | ------ | --- |

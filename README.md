@@ -32,11 +32,11 @@ This API is used to insert data to a certain sheet name.
 
 | Parameter | Type | Required | Description |
 | --------- | ---- | -------- | ----------- |
-| action | string | true | must be set to "Insert" with case insensitive |
-| sheetName | string | true   | Sheet name where the data will be inserted |
-| data      | array | true  | array of object which will be inserted to the sheet. The keys of the object are the columns in the sheet and the value of the objects are the value that will be inserted |
+| action | string | mandatory | must be set to "Insert" with case insensitive |
+| sheetName | string | mandatory   | Sheet name where the data will be inserted |
+| data      | array | mandatory  | array of object which will be inserted to the sheet. The keys of the object are the columns in the sheet and the value of the objects are the value that will be inserted |
 
-### Example Request:
+#### Example Request:
 
 ```bash
 curl --location 'https://script.google.com/macros/s/AKbcvfxUQKPcQokx8D_OcFC04FO1r36SJfWKKHayGOgEZ2DhYI26u10rdg51hRHTv5oUgAQabc/exec' \
@@ -59,5 +59,51 @@ curl --location 'https://script.google.com/macros/s/AKbcvfxUQKPcQokx8D_OcFC04FO1
 ```JSON
 {
     "status": "OK"
+}
+```
+
+### Read Data
+
+This API is used to read data from Google sheets.
+
+| Method | URL |
+| ------ | --- |
+| GET    | {{appscript_web_url}}
+
+#### Query Parameters
+
+
+| Parameter | Type | Required | Description |
+| --------- | ---- | -------- | ----------- |
+| sheetName | string | required | Sheet name where the data will be read |
+| action | string | optional | Can be set to "search" if you need to search specific data |
+| limit | integer | optional | Limit the number of rows returned |
+| offset | integer | optional | how many rows to skip | 
+
+#### Example Request
+
+```bash
+curl --location 'https://script.google.com/macros/s/AKbcvfxUQKPcQokx8D_OcFC04FO1r36SJfWKKHayGOgEZ2DhYI26u10rdg51hRHTv5oUgAQabc/exec?sheetName=Sheet%201'
+```
+
+#### Example Response
+
+```json
+{
+    "status": "OK",
+    "data": [
+        {
+            "first_name": "irfan",
+            "last_name": "Putra",
+            "age": 23,
+            "nationality": "Indonesia"
+        },
+        {
+            "first_name": "Neymar",
+            "last_name": "Junior",
+            "age": 31,
+            "nationality": "Brazil"
+        }
+    ]
 }
 ```

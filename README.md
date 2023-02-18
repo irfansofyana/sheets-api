@@ -42,6 +42,7 @@ This API is used to insert data to a certain sheet name.
 curl --location 'https://script.google.com/macros/s/AKbcvfxUQKPcQokx8D_OcFC04FO1r36SJfWKKHayGOgEZ2DhYI26u10rdg51hRHTv5oUgAQabc/exec' \
 --header 'Content-Type: application/json' \
 --data '{
+    "actionn": "Insert",
     "sheetName": "Sheet 1",
     "data": [
         {
@@ -114,5 +115,52 @@ curl --location 'https://script.google.com/macros/s/AKbcvfxUQKPcQokx8D_OcFC04FO1
             }
         ]
     }
+}
+```
+
+### Update Data
+
+This API is used to update data to a certain sheet name.
+
+| Method | URL |
+| ------ | --- |
+| POST   | {{appscript_web_url}}
+
+
+#### Request Body
+
+| Parameter | Type | Required | Description |
+| --------- | ---- | -------- | ----------- |
+| action | string | mandatory | Must be set to "Update" with case insensitive |
+| sheetName | string | mandatory   | Sheet name where the data will be updated |
+| singleUpdate | boolean | mandatory | The update operation mode whether it's single update or batch update |
+| query | object | conditional | Query to match for the rows that will be updated. Consist of `column` and `value` keys. `column` key is the column name and `value` is the value of the column that will be query. This field is mandatory if `singleUpdate` is true. |
+| data | object | conditional | All rows match `query` before will be updated with this data. This field is mandatory if `singleUpdate` is true  |
+
+#### Example Request:
+
+```bash
+curl --location 'https://script.google.com/macros/s/AKbcvfxUQKPcQokx8D_OcFC04FO1r36SJfWKKHayGOgEZ2DhYI26u10rdg51hRHTv5oUgAQabc/exec' \
+--header 'Content-Type: application/json' \
+--data '{
+    "action": "Update",
+    "sheetName": "Sheet 1",
+    "query": {
+        "column": "first_name",
+        "value": "irfan",
+    },
+    "data": {
+        "first_name": "IRFAN",
+        "last_name": "PUTRA",
+        "age": 25,
+    }
+}'
+```
+
+#### Example Response:
+
+```JSON
+{
+    "status": "OK"
 }
 ```

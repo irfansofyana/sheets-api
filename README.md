@@ -311,7 +311,7 @@ This library is still an MVP and will continue to develop as time goes by. Here 
 
 Here are some demo when using this library with the existing APIs with the help of Postman.
 
-### Add Data Demo
+### Insert Data Demo
 ![Insert Data Postman](./img/demo1.png)
 ![Check Insert Data on Sheets](./img/demo2.png)
 

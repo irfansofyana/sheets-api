@@ -1,6 +1,28 @@
 # sheets-api
 Make your Google Sheets into JSON API with free and easy!
 
+## Table of Contents
+
+- [What is it?](#what-is-it)
+- [Installation](#instalation)
+- [APIs](#list-of-apis)
+    - [Insert API](#insert-data)
+        - [Request Body](#request-body)
+        - [Response Body](#response-body)
+        - [Example Request](#example-request)
+        - [Example Response](#example-response)
+    - [Read API](#read-data)
+        - [Query Parameters](#query-parameters)
+        - [Response Body](#response-body-1)
+        - [Example Request](#example-request-1)
+        - [Example Response](#example-response-1)
+    - [Insert API](#insert-data)
+        - [Request Body](#request-body-1)
+        - [Response Body](#response-body-2)
+        - [Example Request](#example-request-2)
+        - [Example Response](#example-response-2)
+    
+
 ## What is it?
 
 sheets-api is basically a Google App Script library which can be used to make your Google Sheets into a JSON API. It has set of APIs that you can use to search, add, update, and delete from Google Sheets data.

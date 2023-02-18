@@ -162,6 +162,7 @@ curl --location 'https://script.google.com/macros/s/AKbcvfxUQKPcQokx8D_OcFC04FO1
 
 ```JSON
 {
-    "status": "OK"
+    "status": "OK",
+    "updated": 1,
 }
 ```

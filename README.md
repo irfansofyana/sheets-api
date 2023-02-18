@@ -32,9 +32,9 @@ This API is used to insert data to a certain sheet name.
 
 | Parameter | Type | Required | Description |
 | --------- | ---- | -------- | ----------- |
-| action | string | mandatory | must be set to "Insert" with case insensitive |
+| action | string | mandatory | Must be set to "Insert" with case insensitive |
 | sheetName | string | mandatory   | Sheet name where the data will be inserted |
-| data      | array | mandatory  | array of object which will be inserted to the sheet. The keys of the object are the columns in the sheet and the value of the objects are the value that will be inserted |
+| data      | array | mandatory  | Array of objects which will be inserted to the sheet. The keys of the object are the columns in the sheet and the value of the objects are the value that will be inserted |
 
 #### Example Request:
 
@@ -77,8 +77,8 @@ This API is used to read data from Google sheets.
 | --------- | ---- | -------- | ----------- |
 | sheetName | string | required | Sheet name where the data will be read |
 | action | string | optional | Can be set to "search" if you need to search specific data |
-| limit | integer | optional | Limit the number of rows returned |
-| offset | integer | optional | how many rows to skip | 
+| limit | integer | optional | Limit the number of rows returned. If set, must be value > 0 |
+| offset | integer | optional | How many rows to skip. If set, must be value > 0 | 
 
 #### Example Request
 

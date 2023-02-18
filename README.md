@@ -27,7 +27,6 @@ This API is used to insert data to a certain sheet name.
 | ------ | --- |
 | POST   | {{appscript_web_url}}
 
-
 #### Request Body
 
 | Parameter | Type | Required | Description |
@@ -35,6 +34,12 @@ This API is used to insert data to a certain sheet name.
 | action | string | mandatory | Must be set to "Insert" with case insensitive |
 | sheetName | string | mandatory   | Sheet name where the data will be inserted |
 | data      | array | mandatory  | Array of objects which will be inserted to the sheet. The keys of the object are the columns in the sheet and the value of the objects are the value that will be inserted |
+
+#### Response Body
+
+| Parameter | Type | Description |
+| --------- | ----  | ----------- |
+| status    | string | Status of the response. It will be set to "OK" if the request is success |
 
 #### Example Request:
 
@@ -80,6 +85,17 @@ This API is used to read data from Google sheets.
 | action | string | optional | Can be set to "search" if you need to search specific data |
 | limit | integer | optional | Limit the number of rows returned. If set, must be value > 0 |
 | offset | integer | optional | How many rows to skip. If set, must be value > 0 | 
+
+#### Response Body
+
+| Parameter | Type | Description |
+| --------- | ----  | ----------- |
+| status    | string | Status of the response. It will be set to "OK" if the request is success |
+| data   | object | Object that contains the data information |
+| data.columns | array of string | Columns that are exist on the given sheet name
+| data.count | integer | The number of rows returned |
+| data.rows | object | The rows data returned |
+
 
 #### Example Request
 
@@ -136,6 +152,13 @@ This API is used to update data to a certain sheet name.
 | singleUpdate | boolean | mandatory | The update operation mode whether it's single update or batch update. Set to `true` if it's single update otherwise it's batch update |
 | query | object | conditional | Query to match for the rows that will be updated. Consist of `column` and `value` keys. `column` key is the column name and `value` is the value of the column that will be query. This field is mandatory if `singleUpdate` is true. |
 | data | object | conditional | All rows match `query` before will be updated with this data. This field is mandatory if `singleUpdate` is true  |
+
+#### Response Body
+
+| Parameter | Type | Description |
+| --------- | ----  | ----------- |
+| status    | string | Status of the response. It will be set to "OK" if the request is success |
+| updated   | integer | The number of rows that are updated |  
 
 #### Example Request:
 

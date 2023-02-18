@@ -26,7 +26,10 @@ Make your Google Sheets into JSON API with free and easy!
         - [Response Body](#response-body-3)
         - [Example Request](#example-request-3)
         - [Example Response](#example-response-3)
-    
+    - [Error Response](#error-response)
+- [Limitations](#limitations)
+- [Roadmaps](#roadmaps)
+- [Demo](#demo)
 
 ## What is it?
 
@@ -36,13 +39,27 @@ This library is a good, easy to use, and free alternatives for some paid product
 
 ## Instalation
 
-To install this library, you can create any Google Sheets and create an app script inside of it. After that, you will require to import following AppScript library `{{appscript_project_id}}`. You can use the latest version of this library.
+To install this library, you can create any Google Sheets and add an appscript to it. Once the sheet has been created, you are require to import following AppScript library `1CXhFa7xZxSYpUDyVUP7rL4ADup2DFDpxs-6vUxFqiTmNRFVNBd2O0GIx` and make the identifier for this library as `Gsheetsapi`. This identifier can be changed but make sure you're updated on the code below as well. You can use the latest version available of this library.
 
-After the import is success, you will need to create following AppScript Code
+Once it's imported successfully, copy following appscript code and paste to the existing file in your appscript file.
 
+```javascript
+const sheetID = SpreadsheetApp.getActiveSpreadsheet().getId()
+
+function doPost(req) {
+  return Gsheetsapi.doPostHandler(sheetID, req);
+}
+
+function doGet(req) {
+  return Gsheetsapi.doGetHandler(sheetID, req);
+}
 ```
-code xxxx
-```
+
+After writing the above code, we need to deploy our app script as a web APP by going to the Deploy menu > Manage Deployments > Create Deployment. Since this is the first deployment, you will be required to select the deployment type; in this case, you should choose Web App.
+
+Once you have chosen your Web App, you must set the "Who has access" section. To ensure that the API is accessible to everyone without complex authorization, select "Anyone". Please keep note that although your webapp is accessible by anyone, your spreadsheet itself is still protected. **This library also has a roadmap plan to enhance security using an API key mechanism; although anyone can access it, only those with the API key will be able to view the data**.
+
+After you click "Deploy", you will need to grant the appscript code access to your spreadsheet. To do this, simply follow the given steps and make sure to select the correct Google account. Once access is given, you'll be able to view the Web URL in the format https://script.google.com/macros/s/xxxxxxx/exec. This URL serves as the base URL for making API calls.
 
 ## List of APIs
 
@@ -265,3 +282,47 @@ curl --location 'https://script.google.com/macros/s/AKbcvfxUQKPcQokx8D_OcFC04FO1
     "deleted": 1,
 }
 ```
+
+### Error Response
+
+The API has following structure for error response
+
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+| error_code | string | This is error code in the high level. The values are `BAD_REQUEST`, `UNAUTHORIZED`, `SERVER_ERROR` |
+| error_message | string | The description on why the error is exist |
+
+## Limitations
+
+Below are some existing limitations:
+- API is not giving the proper HTTP status in response header due to technical limitation on AppScript. fOR error handling on the client side, user need to check it from the response body.
+
+## Roadmaps
+
+This library is still an MVP and will continue to develop as time goes by. Here are things that already in plan:
+
+- Better security mechanism using API key to limit access of the API
+- Implement Bulk Update API
+- Implement more features on read/search data
+
+## Demo
+
+Here are some demo when using this library with the existing APIs with the help of Postman.
+
+### Add Data Demo
+![Insert Data Postman](./img/demo1.png)
+![Check Insert Data on Sheets](./img/demo2.png)
+
+### Read Data Demo
+![Read Data Postman](./img/demo3.png)
+
+### Update Data Demo
+
+![Update Data Postman](./img/demo4.png)
+![Check Update Data on Sheets](./img/demo5.png)
+
+
+### Delete Data Demo
+
+![Delete Data Postman](./img/demo6.png)
+![Check Deleted Data on Sheets](./img/demo7.png)

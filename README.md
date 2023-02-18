@@ -295,6 +295,7 @@ The API has following structure for error response
 ## Limitations
 
 Below are some existing limitations:
+- The first row of the sheet will be used as the data columns. So, make sure that these columns is properly setup is important to produce the correct information from the API.
 - API is not giving the proper HTTP status in response header due to technical limitation on AppScript. For error handling on the client side, user need to check it from the response body.
 
 ## Roadmaps

@@ -301,6 +301,7 @@ Below are some existing limitations:
 
 This library is still an MVP and will continue to develop as time goes by. Here are things that already in plan:
 
+- Optimizing Delete API which seems to be slow at the moment
 - Better security mechanism using API key to limit access of the API
 - Implement Bulk Update API
 - Implement more features on read/search data

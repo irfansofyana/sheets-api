@@ -148,12 +148,12 @@ curl --location 'https://script.google.com/macros/s/AKbcvfxUQKPcQokx8D_OcFC04FO1
     "singleUpdate": true,
     "query": {
         "column": "first_name",
-        "value": "irfan",
+        "value": "irfan"
     },
     "data": {
         "first_name": "IRFAN",
         "last_name": "PUTRA",
-        "age": 25,
+        "age": 25
     }
 }'
 ```

@@ -91,19 +91,28 @@ curl --location 'https://script.google.com/macros/s/AKbcvfxUQKPcQokx8D_OcFC04FO1
 ```json
 {
     "status": "OK",
-    "data": [
-        {
-            "first_name": "irfan",
-            "last_name": "Putra",
-            "age": 23,
-            "nationality": "Indonesia"
-        },
-        {
-            "first_name": "Neymar",
-            "last_name": "Junior",
-            "age": 31,
-            "nationality": "Brazil"
-        }
-    ]
+    "data": {
+        "columns": [
+            "first_name",
+            "last_name",
+            "age",
+            "nationality",
+        ],
+        "count": 2,
+        "rows": [
+            {
+                "first_name": "irfan",
+                "last_name": "Putra",
+                "age": 23,
+                "nationality": "Indonesia"
+            },
+            {
+                "first_name": "Neymar",
+                "last_name": "Junior",
+                "age": 31,
+                "nationality": "Brazil"
+            }
+        ]
+    }
 }
 ```

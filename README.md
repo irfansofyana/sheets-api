@@ -133,7 +133,7 @@ This API is used to update data to a certain sheet name.
 | --------- | ---- | -------- | ----------- |
 | action | string | mandatory | Must be set to "Update" with case insensitive |
 | sheetName | string | mandatory   | Sheet name where the data will be updated |
-| singleUpdate | boolean | mandatory | The update operation mode whether it's single update or batch update |
+| singleUpdate | boolean | mandatory | The update operation mode whether it's single update or batch update. Set to `true` if it's single update otherwise it's batch update |
 | query | object | conditional | Query to match for the rows that will be updated. Consist of `column` and `value` keys. `column` key is the column name and `value` is the value of the column that will be query. This field is mandatory if `singleUpdate` is true. |
 | data | object | conditional | All rows match `query` before will be updated with this data. This field is mandatory if `singleUpdate` is true  |
 
@@ -145,6 +145,7 @@ curl --location 'https://script.google.com/macros/s/AKbcvfxUQKPcQokx8D_OcFC04FO1
 --data '{
     "action": "Update",
     "sheetName": "Sheet 1",
+    "singleUpdate": true,
     "query": {
         "column": "first_name",
         "value": "irfan",

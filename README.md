@@ -41,7 +41,7 @@ This library is a good, easy to use, and free alternatives for some paid product
 
 To install this library, you can create any Google Sheets and add an appscript to it. Once the sheet has been created, you are require to import following AppScript library `1CXhFa7xZxSYpUDyVUP7rL4ADup2DFDpxs-6vUxFqiTmNRFVNBd2O0GIx` and make the identifier for this library as `Gsheetsapi`. This identifier can be changed but make sure you're updated on the code below as well. You can use the latest version available of this library.
 
-Once it's imported successfully, copy following appscript code and paste to the existing file in your appscript file.
+Once it's imported successfully, copy following appscript code and paste it to your appscript file.
 
 ```javascript
 const sheetID = SpreadsheetApp.getActiveSpreadsheet().getId()
@@ -295,7 +295,7 @@ The API has following structure for error response
 ## Limitations
 
 Below are some existing limitations:
-- API is not giving the proper HTTP status in response header due to technical limitation on AppScript. fOR error handling on the client side, user need to check it from the response body.
+- API is not giving the proper HTTP status in response header due to technical limitation on AppScript. For error handling on the client side, user need to check it from the response body.
 
 ## Roadmaps
 

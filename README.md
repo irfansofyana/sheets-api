@@ -16,11 +16,16 @@ Make your Google Sheets into JSON API with free and easy!
         - [Response Body](#response-body-1)
         - [Example Request](#example-request-1)
         - [Example Response](#example-response-1)
-    - [Update API](#insert-data)
+    - [Update API](#update-data)
         - [Request Body](#request-body-1)
         - [Response Body](#response-body-2)
         - [Example Request](#example-request-2)
         - [Example Response](#example-response-2)
+    - [Delete API](#delete-data)
+        - [Request Body](#request-body-2)
+        - [Response Body](#response-body-3)
+        - [Example Request](#example-request-3)
+        - [Example Response](#example-response-3)
     
 
 ## What is it?
@@ -158,7 +163,7 @@ curl --location 'https://script.google.com/macros/s/AKbcvfxUQKPcQokx8D_OcFC04FO1
 
 ### Update Data
 
-This API is used to update data to a certain sheet name.
+This API is used to update some rows data from a certain sheet name.
 
 | Method | URL |
 | ------ | --- |
@@ -209,5 +214,54 @@ curl --location 'https://script.google.com/macros/s/AKbcvfxUQKPcQokx8D_OcFC04FO1
 {
     "status": "OK",
     "updated": 1,
+}
+```
+
+### Delete Data
+
+This API is used to delete some rows data from a certain sheet name that match any query given.
+
+| Method | URL |
+| ------ | --- |
+| POST   | {{appscript_web_url}}
+
+#### Request Body
+
+| Parameter | Type | Required | Description |
+| --------- | ---- | -------- | ----------- |
+| action | string | mandatory | Must be set to "Delete" with case insensitive |
+| sheetName | string | mandatory   | Sheet name where the data will be deleted |
+| query | array of object | mandatory | Array of query to match for the rows that will be deleted. Consist of `column` and `value` keys. `column` key is the column name and `value` is the value of the column that will be query. |
+
+#### Response Body
+
+| Parameter | Type | Description |
+| --------- | ----  | ----------- |
+| status    | string | Status of the response. It will be set to "OK" if the request is success |
+| deleted   | integer | The number of rows that are deleted |  
+
+#### Example Request:
+
+```bash
+curl --location 'https://script.google.com/macros/s/AKbcvfxUQKPcQokx8D_OcFC04FO1r36SJfWKKHayGOgEZ2DhYI26u10rdg51hRHTv5oUgAQabc/exec' \
+--header 'Content-Type: application/json' \
+--data '{
+    "action": "Delete",
+    "sheetName": "Sheet 1",
+    "query": [
+        {
+            "column": "first_name",
+            "value": "irfan"
+        }
+    ]
+}'
+```
+
+#### Example Response:
+
+```JSON
+{
+    "status": "OK",
+    "deleted": 1,
 }
 ```

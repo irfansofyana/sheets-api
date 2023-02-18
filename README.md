@@ -16,7 +16,7 @@ Make your Google Sheets into JSON API with free and easy!
         - [Response Body](#response-body-1)
         - [Example Request](#example-request-1)
         - [Example Response](#example-response-1)
-    - [Insert API](#insert-data)
+    - [Update API](#insert-data)
         - [Request Body](#request-body-1)
         - [Response Body](#response-body-2)
         - [Example Request](#example-request-2)
